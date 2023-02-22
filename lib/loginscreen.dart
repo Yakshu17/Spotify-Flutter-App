@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:spotify/homescreen.dart';
+
+
 class Loginscreen extends StatefulWidget {
   const Loginscreen({Key? key}) : super(key: key);
 
@@ -8,6 +13,9 @@ class Loginscreen extends StatefulWidget {
 }
 
 class _LoginscreenState extends State<Loginscreen> {
+  final auth=FirebaseAuth.instance;
+  final emailController=TextEditingController();
+  final passController=TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,6 +36,7 @@ class _LoginscreenState extends State<Loginscreen> {
             width: MediaQuery.of(context).size.width*0.95,
             child: TextFormField(
               keyboardType: TextInputType.text,
+              controller: emailController,
               decoration: InputDecoration(
                   filled: true,
                   fillColor: Colors.grey.shade600,
@@ -46,7 +55,9 @@ class _LoginscreenState extends State<Loginscreen> {
                   Text("Password",style: TextStyle(fontSize: 37,color: Colors.white,fontWeight: FontWeight.bold),)),
               SizedBox(
                 width:MediaQuery.of(context).size.width*0.95,
-                child: TextFormField(keyboardType: TextInputType.text,
+                child: TextFormField(keyboardType: TextInputType.number,
+                  controller: passController,
+                  obscureText: true,
                   decoration: InputDecoration(
                       filled: true,
                       fillColor: Colors.grey.shade600,
@@ -61,20 +72,37 @@ class _LoginscreenState extends State<Loginscreen> {
 
             ],
           ),
-         SizedBox(height: 30,),
-            OutlinedButton(
-              onPressed: () {},
-              style: OutlinedButton.styleFrom(
-                  primary: Colors.black,
-                  padding: const EdgeInsets.all(15.9),
-                  backgroundColor: Colors.grey,
-                  maximumSize:const Size.fromHeight(60),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(35),
-                  )),
-              child: const Text(
-                'Log in',
-                style: TextStyle(fontSize: 25,fontWeight: FontWeight.bold),
+         const SizedBox(height: 30,),
+            SizedBox(
+              width: 110,
+              child: OutlinedButton(
+                onPressed: () {
+                  auth.signInWithEmailAndPassword(
+                      email:emailController.text.toString()
+                      , password: passController.text.toString()).then((value) {
+                    Navigator.push(context,MaterialPageRoute(builder: (context) => Homescreen()));
+                    emailController.clear();
+                    passController.clear();
+                      }).then((value){
+                    print("Login Successfully");
+                  }).onError((error, stackTrace){
+                    print(error.toString());
+                  });
+
+
+                },
+                style: OutlinedButton.styleFrom(
+                    primary: Colors.black,
+                    padding: const EdgeInsets.all(15.9),
+                    backgroundColor: Colors.grey,
+                    maximumSize:const Size.fromHeight(60),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(35),
+                    )),
+                child: const Text(
+                  'Log in',
+                  style: TextStyle(fontSize:20,fontWeight: FontWeight.bold),
+                ),
               ),
             )
           ],

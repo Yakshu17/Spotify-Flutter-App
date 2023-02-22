@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "650429945449",
+    "project_id": "spotify-flutter",
+    "storage_bucket": "spotify-flutter.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:650429945449:android:0593f9a95149fb74adf4f8",
+        "android_client_info": {
+          "package_name": "com.android.application"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "650429945449-j7cb2r7l43hqo5ttq34ffmfe0qvjvahj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBEYtzlSE52aqpYAAVnskGzLcRzHD3mKQA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "650429945449-j7cb2r7l43hqo5ttq34ffmfe0qvjvahj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

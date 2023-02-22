@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:spotify/loginscreen.dart';
 import 'package:spotify/signupfree.dart';
+import 'continuewithphone.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+
 
 class Mainscreen extends StatefulWidget {
   const Mainscreen({Key? key}) : super(key: key);
@@ -59,7 +63,9 @@ class _MainscreenState extends State<Mainscreen> {
                   height: MediaQuery.of(context).size.height * 0.06,
                   width: MediaQuery.of(context).size.width * 0.8,
                   child: OutlinedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(context, MaterialPageRoute(builder:(context)=>Continuewithphone()));
+                    },
                     style: OutlinedButton.styleFrom(
                         primary: Colors.white,
                         backgroundColor: Colors.black,
