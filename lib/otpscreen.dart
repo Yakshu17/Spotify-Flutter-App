@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:spotify/continuewithphone.dart';
 
 class Otpscreen extends StatefulWidget {
   const Otpscreen({Key? key}) : super(key: key);
@@ -74,7 +75,9 @@ class _OtpscreenState extends State<Otpscreen> {
                 ),
               ),
             SizedBox(height: 20,),
-            TextButton(onPressed:(){},
+            TextButton(onPressed:(){
+              Navigator.push(context, MaterialPageRoute(builder:(context)=>Continuewithphone()));
+            },
 
               child:Row(
                 mainAxisAlignment: MainAxisAlignment.center,
