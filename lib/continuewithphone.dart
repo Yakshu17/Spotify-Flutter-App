@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'otpscreen.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class Continuewithphone extends StatefulWidget {
   const Continuewithphone({Key? key}) : super(key: key);
@@ -9,6 +11,8 @@ class Continuewithphone extends StatefulWidget {
 }
 
 class _ContinuewithphoneState extends State<Continuewithphone> {
+  final auth=FirebaseAuth.instance;
+  final phoneController=TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,7 +35,8 @@ appBar: AppBar(
             SizedBox(
               width: MediaQuery.of(context).size.width*0.92,
               child: TextFormField(
-                keyboardType: TextInputType.number,
+                controller: phoneController,
+                keyboardType: TextInputType.text,
                 decoration: InputDecoration(
                   hintText: "Phone number",
                     hintStyle: const TextStyle(
@@ -55,7 +60,24 @@ appBar: AppBar(
               width: 130,
               child: OutlinedButton(
                 onPressed: () {
-                  Navigator.pushReplacement(context, MaterialPageRoute(builder:(context)=>Otpscreen()));
+                  print("Verifiaction code sended to your ${phoneController.text.toString()}");
+                auth.verifyPhoneNumber(
+                  phoneNumber: phoneController.text,
+                    verificationCompleted:(_){},
+                    verificationFailed:(e){
+                      print("Verification Failed -  ${e.toString()}");
+                    },
+                    codeSent: (String verfication_id,int? token){
+                  print("Verifiaction code sended to your ${phoneController.text.toString()}");
+                  Navigator.push(context, MaterialPageRoute(builder:(context)=>Otpscreen(verificationid: verfication_id,)));
+                  phoneController.clear();
+                  },
+                    codeAutoRetrievalTimeout:(e){
+                      print("Session is out of time ${e.toString()}");
+                  });
+
+                  print("Successful");
+
                   },
                 style: OutlinedButton.styleFrom(
                     primary: Colors.black,

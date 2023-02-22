@@ -1,20 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:spotify/continuewithphone.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'homescreen.dart';
 
 class Otpscreen extends StatefulWidget {
-  const Otpscreen({Key? key}) : super(key: key);
+  final verificationid;
+  const Otpscreen({Key? key,required this.verificationid}) : super(key: key);
 
   @override
   State<Otpscreen> createState() => _OtpscreenState();
 }
 
 class _OtpscreenState extends State<Otpscreen> {
+  final auth=FirebaseAuth.instance;
+  final otpController=TextEditingController();
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        body: Container(padding: EdgeInsets.only(top: 40),
+        body: Container(padding: const EdgeInsets.only(top: 40),
           height: MediaQuery.of(context).size.height,
           width: MediaQuery.of(context).size.width,
           color: Colors.grey.shade900,
@@ -30,6 +36,7 @@ class _OtpscreenState extends State<Otpscreen> {
               SizedBox(
                 width: MediaQuery.of(context).size.width*0.92,
                 child: TextFormField(
+                  controller: otpController,
                   keyboardType: TextInputType.number,
                   decoration: InputDecoration(
                       hintText: "",
@@ -52,8 +59,19 @@ class _OtpscreenState extends State<Otpscreen> {
               SizedBox(
                 width: 130,
                 child: OutlinedButton(
-                  onPressed: () {
+                  onPressed: () async{
+                 final authtoken =PhoneAuthProvider.credential(
+                     verificationId: widget.verificationid,
+                     smsCode: otpController.text.toString()
+                 );
+                 try{
+                   await auth.signInWithCredential(authtoken);
+                   Navigator.push(context, MaterialPageRoute(builder: (context)=>Homescreen()));
+                 }
+                 catch(e){
+                   print(e.toString());
 
+                 }
 
                   },
                   style: OutlinedButton.styleFrom(
