@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:spotify/loginscreen.dart';
 import 'package:spotify/signupfree.dart';
 
 class Mainscreen extends StatefulWidget {
@@ -16,7 +17,7 @@ class _MainscreenState extends State<Mainscreen> {
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
         decoration: const BoxDecoration(
-          color: Color.fromRGBO(0, 0, 0, 1),
+          color: Colors.black,
         ),
         child: Center(
           child: SizedBox(
@@ -46,6 +47,7 @@ class _MainscreenState extends State<Mainscreen> {
                       "Sign up free",
                       style: TextStyle(
                         fontSize: 17,
+                          fontWeight: FontWeight.bold,
                       ),
                     ),
                   ),
@@ -72,7 +74,7 @@ class _MainscreenState extends State<Mainscreen> {
                           "Continue with phone number",
                           style: TextStyle(
                             fontFamily: 'Spotify_bold',
-                            fontSize: 17,
+                            fontSize: 17,fontWeight: FontWeight.bold,
                           ),
                         ),
                       ],
@@ -106,6 +108,7 @@ class _MainscreenState extends State<Mainscreen> {
                           style: TextStyle(
                             fontFamily: 'Spotify_bold',
                             fontSize: 17,
+                              fontWeight: FontWeight.bold,
                           ),
                         )
                       ],
@@ -133,8 +136,7 @@ class _MainscreenState extends State<Mainscreen> {
                         SizedBox(width: 25,),
                         Text(
                           "Continue with Facebook",
-                          style: TextStyle(
-                            fontFamily: 'Spotify_bold',
+                          style: TextStyle(fontWeight: FontWeight.bold,
                             fontSize: 17,
                           ),
                         ),
@@ -144,12 +146,15 @@ class _MainscreenState extends State<Mainscreen> {
                 ),
                 SizedBox(
                     child: TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+Navigator.push(context, MaterialPageRoute(builder:(context)=>Loginscreen()));
+                  },
                   child: const Text(
                     "Log in",
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 18,
+                        fontWeight: FontWeight.bold
                     ),
                   ),
                 ))

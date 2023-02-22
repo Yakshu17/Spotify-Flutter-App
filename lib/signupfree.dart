@@ -13,15 +13,15 @@ class _SignupfreeState extends State<Signupfree> {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          "Create account",
+          "Create account",style: TextStyle(fontWeight: FontWeight.bold),
         ),
-        backgroundColor: Colors.black,
+        backgroundColor: Colors.grey.shade900,
         centerTitle: true,
       ),
       body: Container(
           height: MediaQuery.of(context).size.height,
           width: MediaQuery.of(context).size.width,
-          color: Colors.black,
+          color: Colors.grey.shade900,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -29,7 +29,7 @@ class _SignupfreeState extends State<Signupfree> {
                 height: 25,
               ),
               const Text("What's your email?",
-                  style: TextStyle(fontSize: 37, color: Colors.white)),
+                  style: TextStyle(fontSize: 37, color: Colors.white,fontWeight: FontWeight.bold)),
               const SizedBox(
                 height: 12,
               ),
@@ -51,7 +51,7 @@ class _SignupfreeState extends State<Signupfree> {
               ),
               const Text(
                 "You'll need to confirm this email later.",
-                style: TextStyle(color: Colors.white),
+                style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),
               ),
               const SizedBox(
                 height: 25,
@@ -72,7 +72,7 @@ class _SignupfreeState extends State<Signupfree> {
                       )),
                   child: const Text(
                     'Next',
-                    style: TextStyle(fontSize: 25),
+                    style: TextStyle(fontSize: 25,fontWeight: FontWeight.bold),
                   ),
                 )),
               )
