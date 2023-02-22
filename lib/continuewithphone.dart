@@ -27,14 +27,14 @@ appBar: AppBar(
                 child: const Text("Enter phone number",
                   style: TextStyle(fontSize: 35,
                       color: Colors.white,fontWeight: FontWeight.bold),)),
-            SizedBox(height: 3,),
+            const SizedBox(height: 3,),
             SizedBox(
               width: MediaQuery.of(context).size.width*0.92,
               child: TextFormField(
                 keyboardType: TextInputType.number,
                 decoration: InputDecoration(
                   hintText: "Phone number",
-                    hintStyle: TextStyle(
+                    hintStyle: const TextStyle(
                       color: Colors.white
                     ),
                     filled: true,
@@ -45,11 +45,11 @@ appBar: AppBar(
                     )),
               ),
             ),
-            SizedBox(height: 7,),
-            Container(padding: EdgeInsets.only(left: 16),
-                child: Text("We'll send you a code by SMS to confirm your phone number.", style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),)),
-            SizedBox(height: 15,),
-            Text("We may occasionally send you service-based messages.", style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),),
+            const SizedBox(height: 7,),
+            Container(padding: const EdgeInsets.only(left: 16),
+                child: const Text("We'll send you a code by SMS to confirm your phone number.", style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),)),
+            const SizedBox(height: 15,),
+            const Text("We may occasionally send you service-based messages.", style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),),
             const SizedBox(height: 70,),
             SizedBox(
               width: 130,

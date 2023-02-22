@@ -14,11 +14,7 @@ class _OtpscreenState extends State<Otpscreen> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        appBar: AppBar(
-          backgroundColor: Colors.grey.shade900,
-
-        ),
-        body: Container(
+        body: Container(padding: EdgeInsets.only(top: 40),
           height: MediaQuery.of(context).size.height,
           width: MediaQuery.of(context).size.width,
           color: Colors.grey.shade900,
@@ -30,14 +26,14 @@ class _OtpscreenState extends State<Otpscreen> {
                   child: const Text("Enter your code",
                     style: TextStyle(fontSize: 35,
                         color: Colors.white,fontWeight: FontWeight.bold),)),
-              SizedBox(height:7,),
+              const SizedBox(height:7,),
               SizedBox(
                 width: MediaQuery.of(context).size.width*0.92,
                 child: TextFormField(
                   keyboardType: TextInputType.number,
                   decoration: InputDecoration(
                       hintText: "",
-                      hintStyle: TextStyle(
+                      hintStyle: const TextStyle(
                           color: Colors.white
                       ),
                       filled: true,
@@ -48,10 +44,10 @@ class _OtpscreenState extends State<Otpscreen> {
                       )),
                 ),
               ),
-              SizedBox(height: 12,),
-              Container(padding: EdgeInsets.only(left: 16),
-                  child: Text("We sent an SMS with a 6-digit code to your \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t phone number.", style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),)),
-              SizedBox(height: 10,),
+              const SizedBox(height: 12,),
+              Container(padding: const EdgeInsets.only(left: 16),
+                  child: const Text("We sent an SMS with a 6-digit code to your \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t phone number.", style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),)),
+              const SizedBox(height: 10,),
               const SizedBox(height: 10,),
               SizedBox(
                 width: 130,
@@ -74,14 +70,14 @@ class _OtpscreenState extends State<Otpscreen> {
                   ),
                 ),
               ),
-            SizedBox(height: 20,),
+            const SizedBox(height: 20,),
             TextButton(onPressed:(){
               Navigator.push(context, MaterialPageRoute(builder:(context)=>Continuewithphone()));
             },
 
               child:Row(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: [
+                children: const [
                    FaIcon(FontAwesomeIcons.edit,color: Colors.white),
                   SizedBox(width: 8,),
                   Text("Edit phone number",style: TextStyle(color: Colors.white,fontSize: 15),),
