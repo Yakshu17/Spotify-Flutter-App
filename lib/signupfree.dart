@@ -60,21 +60,24 @@ class _SignupfreeState extends State<Signupfree> {
                 height: MediaQuery.of(context).size.height * 0.1,
                 width: MediaQuery.of(context).size.width * 1.0,
                 child: Center(
-                    child: OutlinedButton(
+                    child: SizedBox(
+                      width: 100,
+                      child: OutlinedButton(
                   onPressed: () {},
                   style: OutlinedButton.styleFrom(
-                      primary: Colors.black,
-                      padding: const EdgeInsets.all(16.8),
-                      backgroundColor: Colors.grey,
-                      maximumSize:const Size.fromHeight(60),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(35),
-                      )),
+                        primary: Colors.black,
+                        padding: const EdgeInsets.all(16.8),
+                        backgroundColor: Colors.grey,
+                        maximumSize:const Size.fromHeight(60),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(35),
+                        )),
                   child: const Text(
-                    'Next',
-                    style: TextStyle(fontSize: 25,fontWeight: FontWeight.bold),
+                      'Next',
+                      style: TextStyle(fontSize: 25,fontWeight: FontWeight.bold,color: Colors.black26),
                   ),
-                )),
+                ),
+                    )),
               )
             ],
           )),

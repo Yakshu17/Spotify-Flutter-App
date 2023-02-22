@@ -30,7 +30,7 @@ class _LoginscreenState extends State<Loginscreen> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             const SizedBox(height: 15,),
-            Container(padding: const EdgeInsets.only(right:67),
+            Container(padding: const EdgeInsets.only(right:60),
                 child: const Text("Email or username",style: TextStyle(fontSize: 37,color: Colors.white,fontWeight: FontWeight.bold),)),
           SizedBox(
             width: MediaQuery.of(context).size.width*0.95,
@@ -101,7 +101,7 @@ class _LoginscreenState extends State<Loginscreen> {
                     )),
                 child: const Text(
                   'Log in',
-                  style: TextStyle(fontSize:20,fontWeight: FontWeight.bold),
+                  style: TextStyle(fontSize:20,fontWeight: FontWeight.bold,color: Colors.black26),
                 ),
               ),
             )
